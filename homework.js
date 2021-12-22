@@ -254,16 +254,20 @@ function home   (hom) {
     })
 }
 
+
+
 async function regime() {
+
+    try {
     let wak = await wakeUp(true);
-    let bre = await breakfast(true);
-    let sho = await shower(true);
-    let buss = await bus(true);
-    let wor = await work(true);
-    let din = await dinner(true);
-    let cof = await coffeTime(true);
-    let ten = await tennis(true);
-    let hom = await home(true);
+    let bre = await breakfast(wak);
+    let sho = await shower(bre);
+    let buss = await bus(sho);
+    let wor = await work(buss);
+    let din = await dinner(wor);
+    let cof = await coffeTime(din);
+    let ten = await tennis(cof);
+    let hom = await home(ten);
 
     console.log(wak, 'wak');
     console.log(bre, 'bre');
@@ -274,7 +278,9 @@ async function regime() {
     console.log(cof, 'cof');
     console.log(ten, 'ten');
     console.log(hom, 'hom');
-
+    } catch (err) {
+        console.error(err)
+    }
 }
 
 regime();
