@@ -153,137 +153,137 @@
 //
                                          // async
 
-
-
-let rand = 0.3;
-function wakeUp(msg) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            Math.random() >rand
-            ?resolve(msg)
-                : reject('oversleep')
-        }, 300);
-    })
-}
-
-function breakfast (bre) {
-    console.log('my breakfast')
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            Math.random() >rand
-             ? resolve(bre)
-                : reject ('I dont have time to have breakfast')
-        },1000);
-    })
-}
-
-
-function shower (sho) {
-    console.log('go to shower')
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            Math.random() >rand
-                ? resolve(sho)
-                : reject ('to be dirty')
-        },3000);
-    })
-}
-function bus (bus) {
-    console.log('go to the bus stop')
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            Math.random() >rand
-                ? resolve(bus)
-                : reject ('the bus didnt arrive')
-        },2000);
-    })
-}
-
-
-
-function work (wor) {
-    console.log('hello work')
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            Math.random() >rand
-                ? resolve(wor)
-                : reject ('day off')
-        },800);
-    })
-}
-
-function dinner (din) {
-    console.log('tasty dinner')
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            Math.random() >rand
-                ? resolve(din)
-                : reject ('not tasty hot dog')
-        },1500);
-    })
-}
-function coffeTime (coffe) {
-    console.log('cappuccino')
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            Math.random() >rand
-                ? resolve(coffe)
-                : reject ('espresso')
-        },1500);
-    })
-}
-function tennis  (ten) {
-    console.log('play table tennis')
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            Math.random() >rand
-                ? resolve(ten)
-                : reject ('no time')
-        },2000);
-    })
-}
-
-function home   (hom) {
-    console.log('go to home ')
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            Math.random() >rand
-                ? resolve(hom)
-                : reject ('snow')
-        },4000);
-    })
-}
-
-
-
-async function regime() {
-
-    try {
-    let wak = await wakeUp(true);
-    let bre = await breakfast(wak);
-    let sho = await shower(bre);
-    let buss = await bus(sho);
-    let wor = await work(buss);
-    let din = await dinner(wor);
-    let cof = await coffeTime(din);
-    let ten = await tennis(cof);
-    let hom = await home(ten);
-
-    console.log(wak, 'wak');
-    console.log(bre, 'bre');
-    console.log(sho, 'sho');
-    console.log(buss, 'buss');
-    console.log(wor, 'wor');
-    console.log(din, 'din');
-    console.log(cof, 'cof');
-    console.log(ten, 'ten');
-    console.log(hom, 'hom');
-    } catch (err) {
-        console.error(err)
-    }
-}
-
-regime();
-
-
+//
+//
+// let rand = 0.3;
+// function wakeUp(msg) {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             Math.random() >rand
+//             ?resolve(msg)
+//                 : reject('oversleep')
+//         }, 300);
+//     })
+// }
+//
+// function breakfast (bre) {
+//     console.log('my breakfast')
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             Math.random() >rand
+//              ? resolve(bre)
+//                 : reject ('I dont have time to have breakfast')
+//         },1000);
+//     })
+// }
+//
+//
+// function shower (sho) {
+//     console.log('go to shower')
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             Math.random() >rand
+//                 ? resolve(sho)
+//                 : reject ('to be dirty')
+//         },3000);
+//     })
+// }
+// function bus (bus) {
+//     console.log('go to the bus stop')
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             Math.random() >rand
+//                 ? resolve(bus)
+//                 : reject ('the bus didnt arrive')
+//         },2000);
+//     })
+// }
+//
+//
+//
+// function work (wor) {
+//     console.log('hello work')
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             Math.random() >rand
+//                 ? resolve(wor)
+//                 : reject ('day off')
+//         },800);
+//     })
+// }
+//
+// function dinner (din) {
+//     console.log('tasty dinner')
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             Math.random() >rand
+//                 ? resolve(din)
+//                 : reject ('not tasty hot dog')
+//         },1500);
+//     })
+// }
+// function coffeTime (coffe) {
+//     console.log('cappuccino')
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             Math.random() >rand
+//                 ? resolve(coffe)
+//                 : reject ('espresso')
+//         },1500);
+//     })
+// }
+// function tennis  (ten) {
+//     console.log('play table tennis')
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             Math.random() >rand
+//                 ? resolve(ten)
+//                 : reject ('no time')
+//         },2000);
+//     })
+// }
+//
+// function home   (hom) {
+//     console.log('go to home ')
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             Math.random() >rand
+//                 ? resolve(hom)
+//                 : reject ('snow')
+//         },4000);
+//     })
+// }
+//
+//
+//
+// async function regime() {
+//
+//     try {
+//     let wak = await wakeUp(false);
+//     let bre = await breakfast(wak);
+//     let sho = await shower(bre);
+//     let buss = await bus(sho);
+//     let wor = await work(buss);
+//     let din = await dinner(wor);
+//     let cof = await coffeTime(din);
+//     let ten = await tennis(cof);
+//     let hom = await home(ten);
+//
+//     console.log(wak, 'wak');
+//     console.log(bre, 'bre');
+//     console.log(sho, 'sho');
+//     console.log(buss, 'buss');
+//     console.log(wor, 'wor');
+//     console.log(din, 'din');
+//     console.log(cof, 'cof');
+//     console.log(ten, 'ten');
+//     console.log(hom, 'hom');
+//     } catch (err) {
+//         console.error(err)
+//     }
+// }
+//
+// regime();
+//
+//
 
