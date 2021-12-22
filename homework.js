@@ -4,7 +4,7 @@
 // Затримка має бути НЕ в порядку зростання, а будь яка. При тому ваші дії мають бути синхронізовані.
 // // Напиклад. // Прикнутись - 0.3с // Поснідати - 1с // Піти в душ - 0.5с // Дочекатись автобус - 3с // Пообідати - 1с // // І так
 //
-// // Promise
+//                                                     // Promise
 //
 // let rand = 0.3;
 // function wakeUp(msg) {
@@ -287,3 +287,157 @@
 //
 //
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                                  // callback hell
+
+
+let rand = 0.1;
+function wakeUp(callback) {
+        setTimeout(() => {
+            Math.random() >rand
+            ?callback(null, 'wake up')
+                : callback('oversleep')
+        }, 300);
+}
+
+function breakfast (exam,callback) {
+    console.log('my breakfast')
+        setTimeout(() => {
+            exam
+             ? callback(null, "sandwich")
+                : callback ('I dont have time to have breakfast')
+        },1000);
+}
+
+function bus (exam,callback) {
+    console.log('go to the bus stop')
+        setTimeout(() => {
+            exam
+                ? callback(null,'bogdan')
+                : callback ('the bus didnt arrive')
+        },2000);
+
+}
+
+
+function shower (exam,callback) {
+    console.log('go to shower')
+        setTimeout(() => {
+            exam
+                ? callback(null,'shampoo')
+                : callback ('to be dirty')
+        },3000);
+
+}
+
+function work (exam,callback) {
+    console.log('hello work')
+        setTimeout(() => {
+            exam
+                ? callback(null,'hard day')
+                : callback ('day off')
+        },800);
+
+}
+
+function dinner (exam,callback) {
+    console.log('tasty dinner')
+        setTimeout(() => {
+            exam
+                ? callback(null,'soup')
+                : callback ('not tasty hot dog')
+        },1500);
+
+}
+function coffeTime (exam,callback) {
+    console.log('cappuccino')
+        setTimeout(() => {
+            exam
+                ? callback(null, 'latte')
+                : callback ('espresso')
+        },1500);
+
+}
+function tennis  (exam,callback) {
+    console.log('play table tennis')
+        setTimeout(() => {
+            exam
+                ? callback(null,'good game')
+                : callback ('no time')
+        },2000);
+
+}
+
+function home   (exam,callback) {
+    console.log('go to home ')
+        setTimeout(() => {
+            exam
+                ? callback(null, 'sleep')
+                : callback ('snow')
+        },4000);
+
+}
+wakeUp((error,data)=>{
+    if (error){
+        console.log(error, "wakeUp");
+    }else{
+        console.log(data);
+        breakfast(true,(error,data)=>{
+            if (error){
+                console.log(error, 'breakfast');
+            }else{
+                console.log(data);
+                bus(true,(error,data)=>{
+                    if (error){
+                        console.log(error,'bus')
+                    }else {
+                        console.log(data);
+                        shower(true,(error,data)=>{
+                            if (error){
+                                console.log(error,'shower')
+                            }else {
+                                console.log(data);
+                                work(true,(error,data)=>{
+                                    if (error){
+                                        console.log(error,'work')
+                                    }else {
+                                        console.log(data);
+                                        dinner(true,(error,data)=>{
+                                            if (error){
+                                                console.log(error,'dinner')
+                                            }else {
+                                                console.log(data);
+                                                coffeTime(true,(error,data)=>{
+                                                    if (error){
+                                                        console.log(error,'coffeTime')
+                                                    }else {
+                                                        console.log(data);
+                                                        tennis(true,(error,data)=>{
+                                                            if (error){
+                                                                console.log(error,'tennis')
+                                                            }else {
+                                                                console.log(data);
+                                                                home(false,(error,data)=>{
+                                                                    if (error){
+                                                                        console.log(error,'home')
+                                                                    }else {
+                                                                        console.log(data);
+                                                                        console.log('Finish!!!')
+                                                                    }
+                                                                })
+                                                            }
+                                                        })
+                                                    }
+                                                })
+                                            }
+                                        })
+                                    }
+                                })
+                            }
+                        })
+                    }
+                })
+            }
+        })
+    }
+} )
